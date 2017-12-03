@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LevelProgressBar">
+        <attr name="levelTextSize" format="dimension"/>
+        <attr name="levelTextChooseColor" format="color"/>
+        <attr name="levelTextUnChooseColor" format="color"/>
+        <attr name="progressStartColor" format="color"/>
+        <attr name="progressEndColor" format="color"/>
+        <attr name="progressBgColor" format="color"/>
+        <attr name="progressHeight" format="dimension"/>
+    </declare-styleable>
+</resources>
