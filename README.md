@@ -1,5 +1,5 @@
 # SpeedProgressBar
-一个Android的自定义View---等级进度条
+Android的自定义View---等级进度条
 
 ## 说明：  
 1.每个等级上有代表等级的文字（等级数和等级文字均可配置）  
