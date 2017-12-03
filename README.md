@@ -12,7 +12,8 @@ Android的自定义View---等级进度条
   
 ## 使用示例：  
 ### 使用前需要设置等级数、等级文字、当前等级、和动画间隔（隔多少毫秒进度+1）：
-```myProgressBar = (LevelProgressBar) findViewById(R.id.progress_bar);  
+```
+myProgressBar = (LevelProgressBar) findViewById(R.id.progress_bar);  
 myProgressBar.setLevels(4);  //等级数
 String[] texts = {"倔强青铜", "持续白银", "荣耀黄金", "尊贵铂金"};  //等级文字  
 myProgressBar.setLevelTexts(texts);  
@@ -20,7 +21,8 @@ myProgressBar.setCurrentLevel(2);  // 当前等级
 myProgressBar.setAnimInterval(10);  // 动画间隔 
 ```  
 ### 布局文件中代码：(app相关的属性也可以不设置，不设置的话会使用默认值)  
-```<com.example.lenovo.speedprogressbar.LevelProgressBar
+```
+<com.example.lenovo.speedprogressbar.LevelProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
