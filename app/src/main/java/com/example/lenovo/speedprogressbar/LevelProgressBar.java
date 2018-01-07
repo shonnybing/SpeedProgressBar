@@ -80,6 +80,7 @@ public class LevelProgressBar extends ProgressBar {
         progressEndColor = a.getColor(R.styleable.LevelProgressBar_progressEndColor, 0x00FF00);
         progressBgColor = a.getColor(R.styleable.LevelProgressBar_progressBgColor, 0x000000);
         progressHeight = (int) a.getDimension(R.styleable.LevelProgressBar_progressHeight, dpTopx(20));
+        a.recycle();
     }
 
     private int dpTopx(int dp) {
