@@ -161,7 +161,13 @@ public class LevelProgressBar extends ProgressBar {
                     getWidth(), lineY,
                     progressStartColor, progressEndColor, Shader.TileMode.REPEAT);
             mPaint.setShader(shader);
-            canvas.drawLine(0 + progressHeight / 2, lineY, reachedPartEnd - progressHeight / 2, lineY, mPaint);
+            int accurateEnd = reachedPartEnd - progressHeight / 2;
+            int accurateStart = 0 + progressHeight / 2;
+            if (accurateEnd > accurateStart) {
+                canvas.drawLine(accurateStart, lineY, accurateEnd, lineY, mPaint);
+            } else {
+                canvas.drawLine(accurateStart, lineY, accurateStart, lineY, mPaint);
+            }
             mPaint.setShader(null);
         }
 
