@@ -1,5 +1,6 @@
 package com.example.lenovo.speedprogressbar;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -33,7 +34,8 @@ public class LevelProgressBar extends ProgressBar {
     private int levels;
     private String[] levelTexts;
     private int currentLevel;
-    private int animInterval;
+    private int animInterval; // 动画时间间隔
+    private int animMaxTime;  // 动画最大时长
     private int targetProgress;
 
     private Paint mPaint;
@@ -107,6 +109,24 @@ public class LevelProgressBar extends ProgressBar {
     public void setAnimInterval(final int animInterval) {
         this.animInterval = animInterval;
         handler.sendEmptyMessage(EMPTY_MESSAGE);
+    }
+
+    // 设置动画时长，动画从0到最高级所需的时间
+    public void setAnimMaxTime(int animMaxTime) {
+        this.animMaxTime = animMaxTime;
+        ValueAnimator animator = ValueAnimator.ofInt(getProgress(), targetProgress);
+        animator.setDuration(animMaxTime * Math.abs(getProgress() - targetProgress) / getMax());
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int progress = getProgress();
+                // 小于目标值时增加进度，大于目标值时减小进度
+                if (progress < targetProgress || progress > targetProgress) {
+                    setProgress((Integer) animation.getAnimatedValue());
+                }
+            }
+        });
+        animator.start();
     }
 
     @Override

@@ -34,19 +34,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id) {
             case R.id.level1:
                 myProgressBar.setCurrentLevel(1);
-                myProgressBar.setAnimInterval(10);
+//                myProgressBar.setAnimInterval(10);
+                myProgressBar.setAnimMaxTime(1000);
                 break;
             case R.id.level2:
                 myProgressBar.setCurrentLevel(2);
-                myProgressBar.setAnimInterval(10);
+//                myProgressBar.setAnimInterval(10);
+                myProgressBar.setAnimMaxTime(1000);
+
                 break;
             case R.id.level3:
                 myProgressBar.setCurrentLevel(3);
-                myProgressBar.setAnimInterval(10);
+//                myProgressBar.setAnimInterval(10);
+                myProgressBar.setAnimMaxTime(1000);
+
                 break;
             case R.id.level4:
                 myProgressBar.setCurrentLevel(4);
-                myProgressBar.setAnimInterval(10);
+//                myProgressBar.setAnimInterval(10);
+                myProgressBar.setAnimMaxTime(1000);
                 break;
         }
     }
