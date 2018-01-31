@@ -57,6 +57,7 @@ public class LevelProgressBar extends ProgressBar {
             }
         }
     };
+    private ValueAnimator animator;
 
     public LevelProgressBar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -114,7 +115,7 @@ public class LevelProgressBar extends ProgressBar {
     // 设置动画时长，动画从0到最高级所需的时间
     public void setAnimMaxTime(int animMaxTime) {
         this.animMaxTime = animMaxTime;
-        ValueAnimator animator = ValueAnimator.ofInt(getProgress(), targetProgress);
+        animator = ValueAnimator.ofInt(getProgress(), targetProgress);
         animator.setDuration(animMaxTime * Math.abs(getProgress() - targetProgress) / getMax());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -193,5 +194,13 @@ public class LevelProgressBar extends ProgressBar {
         }
 
         canvas.restore();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (animator != null) {
+            animator.cancel();
+        }
     }
 }
